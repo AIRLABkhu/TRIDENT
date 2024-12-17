@@ -41,3 +41,5 @@ When cleaning the data, you need to load pretrained moduel which is trained with
 ```bash
 python cleaning_dataset.py --domain photo --ckpt pretrained_trident/photo_trident.pt --data-dir output_trident/SDG --save-dir output_trident_cleaned --reps-root output_reps
 ```
+## Acknowledgement
+This work was partly supported by an Institute of Information and Communications Technology Planning and Evaluation (IITP) grant funded by the Korean government (MSIT) (No.RS-2022-00155911, Artificial Intelligence Convergence Innovation Human Resources Development (KyungHee University)).
