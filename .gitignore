@@ -1,0 +1,18 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# PyTorch Lightning or tensorboard logs
+lightning_logs/
+runs/
+logs/
+
+# Model checkpoints and weights
+*.pt
+*.pth
+
+# VSCode settings
+.vscode/
