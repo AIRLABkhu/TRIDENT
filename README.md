@@ -98,9 +98,9 @@ python3 -m domainbed.scripts.train \
 
 We build upon the following open-source repositories:
 
-- [DoGE (CVPR 2023)](https://github.com/humansensinglab/DoGE) – CLIP-based outlier filtering
+- [DoGE (CVPR 2023)](https://github.com/humansensinglab/DoGE) – using CLIP and unCLIP for Image Generation
 - [DomainBed (ICLR 2021)](https://github.com/facebookresearch/DomainBed) – Benchmark framework for DG
-- [Trager et al. (ICCV 2023)] – Linear Spaces of Meanings: Compositional Structures in Vision-Language Models — insights on compositional embedding structures
+- [Trager et al. (ICCV 2023)](https://openaccess.thecvf.com/content/ICCV2023/papers/Trager_Linear_Spaces_of_Meanings_Compositional_Structures_in_Vision-Language_Models_ICCV_2023_paper.pdf) – Linear Spaces of Meanings: Compositional Structures in Vision-Language Models — insights on compositional embedding structures
 
 ---
 
@@ -114,11 +114,13 @@ This project is licensed under the **MIT License**.
 
 If you use this codebase, please cite our paper:
 
-```bibtex
+
+
+<!-- ```bibtex
 @article{your2025trident,
   title={TRIDENT: Text-Free Data Augmentation Using Image Embedding Decomposition for Domain Generalization},
   author={Your Name and Collaborators},
   journal={arXiv preprint arXiv:xxxx.xxxxx},
   year={2025}
 }
-```
+``` -->
