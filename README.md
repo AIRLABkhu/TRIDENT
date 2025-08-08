@@ -1,126 +1,53 @@
-# TRIDENT: Text-Free Data Augmentation Using Image Embedding Decomposition for Domain Generalization
+# Academic Project Page Template
+This is an academic paper project page template.
 
-This is the official implementation of the paper:
 
-> **TRIDENT: Text-Free Data Augmentation Using Image Embedding Decomposition for Domain Generalization**
-
-TRIDENT is a training-free, prompt-free, and interpretable image augmentation framework designed for domain generalization. By decomposing CLIP image embeddings and recombining domain and class components, it synthesizes diverse, controllable image variations without requiring any textual supervision.
-
----
-
-## 📦 Environment Setup
-
-- Python ≥ 3.10
-- PyTorch 2.0.1
-- CUDA 11.7
-
-Install dependencies via conda:
-
-```bash
-conda env create -f environment.yaml
-conda activate trident
-```
-
----
-
-## ⚙️ Usage Instructions
-
-### 1. Extract CLIP Features
-
-```bash
-python extract_feat.py \
-    --root PACS \
-    --domain $domain \
-    --save-dir output_reps \
-    --device "cuda:0"
-```
-
----
-
-### 2. Train TRIDENT Embedding Module
-
-```bash
-python train_module.py \
-    --root output_reps \
-    --domain photo \
-    --save-dir pretrained_trident \
-    --device "cuda:0"
-```
-
----
-
-### 3. Generate Domain-Transferred Images
-
-```bash
-python generate_trident_multi.py --seed 42 \
-    --gen_src_dir "PACS/$src_domain/$class" \
-    --gen_src_dir2 "PACS/$target_domain" \
-    --pre_trained_dir "20250302_TRI_FIN/PACS/ACP.pt" \
-    --save_dir "${gen_dir}/${src_domain}2${target_domain}/${class}" \
-    --n_batch 10 \
-    --n_per_prompt 1 \
-    --num_inference_steps 20 \
-    --neg_prompt "blurry, blurred, ambiguous, blending, opaque, translucent, layering, shading, mixing, ugly, tiling, poorly drawn face, out of frame, mutation, disfigured, deformed, blurry, bad art, bad anatomy, text, watermark, grainy, underexposed, unreal architecture, unreal sky, weird colors" \
-    --guidance_scale 5.0
-```
-
----
-
-### 4. Filter Inconsistent or Noisy Samples
-
-```bash
-python cleaning_dataset.py \
-    --domain photo \
-    --ckpt pretrained_trident/photo_trident.pt \
-    --data-dir output_trident \
-    --save-dir output_trident_cleaned \
-    --reps-root output_reps
-```
-
----
-
-### 5. Train Domain Generalization Model (DomainBed)
-
-```bash
-python3 -m domainbed.scripts.train \
-    --data_dir /data2/local_datasets/ \
-    --output_dir results/HPARAMS_CLEANED/ACP_10/seed0 \
-    --algorithm ERM \
-    --dataset augmented_PACS \
-    --hparams '{"resnet50_augmix":"True", "data_augmentation_root": $gen_dir}' \
-    --test_env 3 \
-    --trial_seed 0
-```
-
----
-
-## 🔍 References & Acknowledgements
-
-We build upon the following open-source repositories:
-
-- [DoGE (CVPR 2023)](https://github.com/humansensinglab/DoGE) – using CLIP and unCLIP for Image Generation
-- [DomainBed (ICLR 2021)](https://github.com/facebookresearch/DomainBed) – Benchmark framework for DG
-- [Trager et al. (ICCV 2023)](https://openaccess.thecvf.com/content/ICCV2023/papers/Trager_Linear_Spaces_of_Meanings_Compositional_Structures_in_Vision-Language_Models_ICCV_2023_paper.pdf) – Linear Spaces of Meanings: Compositional Structures in Vision-Language Models — insights on compositional embedding structures
-
----
-
-## 📄 License
-
-This project is licensed under the **MIT License**.
-
----
-
-## ✏️ Citation
-
-If you use this codebase, please cite our paper:
+Example project pages built using this template are:
+- https://horwitz.ai/probex
+- https://vision.huji.ac.il/probegen
+- https://horwitz.ai/mother
+- https://horwitz.ai/spectral_detuning
+- https://vision.huji.ac.il/ladeda
+- https://vision.huji.ac.il/dsire
+- https://horwitz.ai/podd
+- https://dreamix-video-editing.github.io
+- https://horwitz.ai/conffusion
+- https://horwitz.ai/3d_ads/
+- https://vision.huji.ac.il/ssrl_ad
+- https://vision.huji.ac.il/deepsim
 
 
 
-<!-- ```bibtex
-@article{your2025trident,
-  title={TRIDENT: Text-Free Data Augmentation Using Image Embedding Decomposition for Domain Generalization},
-  author={Your Name and Collaborators},
-  journal={arXiv preprint arXiv:xxxx.xxxxx},
-  year={2025}
-}
-``` -->
+## Start using the template
+To start using the template click on `Use this Template`.
+
+The template uses html for controlling the content and css for controlling the style. 
+To edit the websites contents edit the `index.html` file. It contains different HTML "building blocks", use whichever ones you need and comment out the rest.  
+
+**IMPORTANT!** Make sure to replace the `favicon.ico` under `static/images/` with one of your own, otherwise your favicon is going to be a dreambooth image of me.
+
+## Components
+- Teaser video
+- Images Carousel
+- Youtube embedding
+- Video Carousel
+- PDF Poster
+- Bibtex citation
+
+## Tips:
+- The `index.html` file contains comments instructing you what to replace, you should follow these comments.
+- The `meta` tags in the `index.html` file are used to provide metadata about your paper 
+(e.g. helping search engine index the website, showing a preview image when sharing the website, etc.)
+- The resolution of images and videos can usually be around 1920-2048, there rarely a need for better resolution that take longer to load. 
+- All the images and videos you use should be compressed to allow for fast loading of the website (and thus better indexing by search engines). For images, you can use [TinyPNG](https://tinypng.com), for videos you can need to find the tradeoff between size and quality.
+- When using large video files (larger than 10MB), it's better to use youtube for hosting the video as serving the video from the website can take time.
+- Using a tracker can help you analyze the traffic and see where users came from. [statcounter](https://statcounter.com) is a free, easy to use tracker that takes under 5 minutes to set up. 
+- This project page can also be made into a github pages website.
+- Replace the favicon to one of your choosing (the default one is of the Hebrew University). 
+- Suggestions, improvements and comments are welcome, simply open an issue or contact me. You can find my contact information at [https://horwitz.ai](https://horwitz.ai)
+
+## Acknowledgments
+Parts of this project page were adopted from the [Nerfies](https://nerfies.github.io/) page.
+
+## Website License
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
