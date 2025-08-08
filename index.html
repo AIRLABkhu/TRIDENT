@@ -109,12 +109,12 @@
 
       <div class="columns is-centered">
         <div class="column is-half has-text-centered">
-          <img src="static/images/concept_sub1.png" alt="MY ALT TEXT"/>
-          <h2 class="subtitle">Brief overview of the TRIDENT framework.</h2>
+          <img src="static/images/concept_sub1.png" alt="MY ALT TEXT" style="max-width: 90%; height: auto; font-size: 12pt"/>
+          <h2 class="subtitle"><b>Figure 1.</b> Brief overview of the TRIDENT framework.</h2>
         </div>
         <div class="column is-half has-text-centered">
-          <img src="static/images/concept_sub2.png" alt="MY ALT TEXT"/>
-          <h2 class="subtitle">Augmented data expands srouce data diversity accross domains via TRIDENT.</h2>
+          <img src="static/images/concept_sub2.png" alt="MY ALT TEXT" style="max-width: 90%; height: auto; font-size: 12pt"/>
+          <h2 class="subtitle"><b>Figure 2.</b> Augmented data expands srouce data diversity accross domains via TRIDENT.</h2>
         </div>
       </div>
     </div>
@@ -155,15 +155,114 @@
     <div class="container">
     <h2 class="title">Main Figure</h2>
       <div class="container has-text-centered">
-        <img src="static/images/main_fig.png" alt="MY ALT TEXT" style="max-width: 90%; height: auto;"/>
+        <img src="static/images/main_fig.png" alt="MY ALT TEXT" style="max-width: 90%; height: auto; font-size: 12pt"/>
         <h2 class="subtitle">
-          Overview of the TRIDENT framework: (1) Extract mean embeddings, which serves as the prototype for decomposing the meaning of image embedding, (2) Train TRIDENT, which is designed to decompose CLIP image embeddings, and (3) Generate data via unCLIP.
+          <b>Figure 3.</b> Overview of the TRIDENT framework: (1) Extract mean embeddings, which serves as the prototype for decomposing the meaning of image embedding, (2) Train TRIDENT, which is designed to decompose CLIP image embeddings, and (3) Generate data via unCLIP.
         </h2>
       </div>
     </div>
   </div>
 </section>
 <!-- End paper Framework Figure -->
+
+
+<!-- Paper Contributionas -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+    <h2 class="title">Contributions</h2>
+    <div class="container">
+      <p>
+        This paper proposes a novel framework called <b>TRIDENT</b>, which addresses these issues by eliminating dependency on text prompts while enabling simple separation and manipulation of meanings within image embedding spaces. 
+        TRIDENT utilizes visual information from image embeddings in CLIP’s embedding space to generate data effectively without relying on text. 
+        Leveraging this property, TRIDENT decomposes image embeddings into three components: <b>Domain</b>, <b>Class</b>, and <b>Attribute</b>. 
+        By incorporating attributes into the decomposition process, we aim to enhance domain generalization by ensuring that generated images retain essential visual properties that define their natural diversity.
+      </p>
+
+      <p class="mt-4">Compared to existing methods, TRIDENT offers several key advantages:</p>
+
+      <ul>
+        <li><b>Elimination of Text Dependency:</b> TRIDENT fundamentally resolves issues associated with textual ambiguity, constraints of fixed text prompts, and inefficiency by removing reliance on text prompts.</li>
+        <li><b>Decomposition into Domain, Class, and Attribute Components:</b> By disentangling image embeddings into these three components, enabling targeted preservation or modification of specific information.</li>
+        <li><b>Practicality and Efficiency:</b> TRIDENT achieves practical and efficient data generation by leveraging pretrained diffusion models, such as Stable unCLIP, without requiring costly model fine-tuning.</li>
+      </ul>
+    </div>
+    </div>
+  </div>
+</section>
+<!-- End paper Contributionas -->
+
+
+<!-- Table carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title">Experiments</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+      <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/table1.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          <b>Table 1.</b> Accuracy of the Multi-source Domain Generalization on PACS.
+        </h2>
+      </div>
+      <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/table2.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          <b>Table 2.</b> Accuracy of the Multi-source Domain Generalization on VLCS.
+        </h2>
+      </div>
+      <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/table3.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          <b>Table 3.</b> Accuracy of the Multi-source Domain Generalization on OfficeHome.
+        </h2>
+      </div>
+      <div class="item">
+        <div class="image-stack">
+          <div class="image-block">
+            <img src="static/images/trident_tsne.png" alt="MY ALT TEXT 1"/>
+            <h2 class="subtitle has-text-centered">
+              <b>Figure 7.</b> Comparison of augmented feature distributions between FDS (left) and TRIDENT (right)
+            </h2>
+          </div>
+          <div class="image-block">
+            <img src="static/images/table4.png" alt="MY ALT TEXT 2"/>
+            <h2 class="subtitle has-text-centered">
+              <b>Table 4.</b> Comparison of embedding space statistics between FDS and TRIDENT (computed using CLIP ViT-B/32).
+            </h2>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/table5.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          <b>Table 5.</b> DG Methods with TRIDENT. We evaluated existing DG methods with and without TRIDENT.
+        </h2>
+      </div>
+      
+      <div class="item">
+        <div class="columns is-centered">
+          <div class="column is-half has-text-centered">
+            <img src="static/images/ablation_add.png" alt="MY ALT TEXT"/>
+            <h2 class="subtitle"><b>Figure 7.</b> Example of ablation study. Each result is generated from the same source image(PACS) on the leftmost column.</h2>
+          </div>
+          <div class="column is-half has-text-centered">
+            <img src="static/images/table10.png" alt="MY ALT TEXT" />
+            <h2 class="subtitle"><b>Table 10.</b> Ablation study on two strategies: (Att.) decomposing embedding to 3 components including attribute embedding, (Cross.) using cross-attention (CAAD) to refine attribute separation, and (Ref.) adding a refinement loss to better align the training objective.
+            </h2>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+</div>
+</section>
+<!-- End table carousel -->
+
 
 <!-- Image carousel -->
 <section class="hero is-small">
@@ -175,23 +274,23 @@
         <!-- Your image here -->
         <img src="static/images/main_results.png" alt="MY ALT TEXT"/>
         <h2 class="subtitle has-text-centered">
-          Synthetic dataset examples. The leftmost images are transferred to other domains, shown in the middle and right.
+          <b>Figure 4.</b> Synthetic dataset examples. The leftmost images are transferred to other domains, shown in the middle and right.
         </h2>
       </div>
       <div class="item">
         <!-- Your image here -->
-        <img src="static/images/compare_prompts.png" alt="MY ALT TEXT"/>
+        <img src="static/images/compare_prompts.png" alt="MY ALT TEXT" style="max-width: 50%; height: auto;"/>
         <h2 class="subtitle has-text-centered">
-          Comparison quality of generated images via Stable Diffusion with text prompt or image guidance.
+          <b>Figure 5.</b> Comparison quality of generated images via Stable Diffusion with text prompt or image guidance.
         </h2>
       </div>
       <div class="item">
         <!-- Your image here -->
         <img src="static/images/viz_components.png" alt="MY ALT TEXT"/>
         <h2 class="subtitle has-text-centered">
-          Visualization of decomposed embedding components via unCLIP and GradCAM.
-       </h2>
-     </div>
+          <b>Figure 11.</b> Visualization of decomposed embedding components via unCLIP and GradCAM.
+        </h2>
+      </div>
   </div>
 </div>
 </div>
@@ -199,8 +298,10 @@
 <!-- End image carousel -->
 
 
+
+
 <!-- Paper poster -->
-<section class="hero is-small is-light">
+<!-- <section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container">
       <h2 class="title">Poster</h2>
@@ -210,7 +311,7 @@
         
       </div>
     </div>
-  </section>
+  </section> -->
 <!--End paper poster -->
 
 
